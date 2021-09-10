@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'single',
+    loadChildren: () => import('./single/single.module').then( m => m.SinglePageModule)
+  },
 ];
 
 @NgModule({

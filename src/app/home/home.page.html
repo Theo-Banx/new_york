@@ -6,15 +6,32 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content >
+  
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  
+
+  <ion-row *ngFor="let article of articles" style="margin-bottom: 10px;" (click)="viewSingleArticle(article)">
+      <ion-col size="2">
+            <ion-avatar style="margin-top : 40% ;background-color: grey; width: 50px; height: 50px;">
+             
+            </ion-avatar>
+      </ion-col>
+      <ion-col size="9">
+        <ion-row>
+            <ion-col size="12">
+              <span style="font-weight:800;">{{article.title  | slice:0:52}}{{ article.title.length > 52 ? '...' : '' }}</span>
+            </ion-col>
+            <ion-col size="12">
+              <span style="font-size: 14px; color: grey;" > {{article.byline  | slice:0:20 }}{{article.byline.length >  20 ? '...' : '' }}</span> <span  style=" color: grey; font-size: 14px;float: right;"><ion-icon name="calendar" mode="md" style="margin-right: 2px;"></ion-icon>{{article.published_date}}</span>
+
+            </ion-col>
+        </ion-row>
+         
+
+      </ion-col>
+      <ion-col  size="1">
+           <ion-icon mode ='ios' style="margin-top : 40px" name="arrow-forward" size="medium"></ion-icon>
+      </ion-col>
+  </ion-row>
 </ion-content>
